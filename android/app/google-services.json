@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235080317318",
+    "project_id": "ieee-c8b6c",
+    "storage_bucket": "ieee-c8b6c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235080317318:android:9ac40456703060f0cc1407",
+        "android_client_info": {
+          "package_name": "com.example.ieee_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235080317318-9ren0q7224k9gr4233tkmvki1f5hkk2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAibDAtXfySBwnto3GCEJ9wHIpW6PB_pGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235080317318-9ren0q7224k9gr4233tkmvki1f5hkk2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
