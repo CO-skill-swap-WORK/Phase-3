@@ -5,7 +5,6 @@ import 'package:ieee_app/app/consepts_string.dart';
 import 'package:ieee_app/view/chat%20screen/view/chat_view.dart';
 import 'package:ieee_app/view/forgetPassword%20screen/view/forget_password_view.dart';
 import 'package:ieee_app/view/home%20screen/view/home_view.dart';
-import 'package:ieee_app/view/login%20screen/view/login_view.dart';
 import 'package:ieee_app/view/messages%20screen/view/message_view.dart';
 import 'package:ieee_app/view/onBoarding%20screen/view/onboarding_view.dart';
 import 'package:ieee_app/view/payment%20screen/view/payment_view.dart';
@@ -53,7 +52,6 @@ class RouteGenerate {
       case RouteManager.messageRoute:
         return MaterialPageRoute(builder: (_) => const MessagesView());
       case RouteManager.loginRoute:
-        return MaterialPageRoute(builder: (_) => const LoginView());
       case RouteManager.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeView());
       case RouteManager.forgetPasswordRoute:

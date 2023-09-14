@@ -28,8 +28,8 @@ class RoleScreen extends StatelessWidget {
     );
   }
 
-  Padding _body(context) {
-    return Padding(
+  SingleChildScrollView _body(context) {
+    return SingleChildScrollView(
       padding: const EdgeInsets.only(top: AppSize.s20),
       child: Column(
         children: [

@@ -5,10 +5,18 @@ import 'package:ieee_app/app/resourse/color_manager.dart';
 class TextFiledCustome extends StatelessWidget {
   final String title;
   final TextEditingController controller;
+  final String textError;
+  final AsyncSnapshot snapshot;
+  final TextInputType inputKeyboardFromUser;
+  final bool? secureText;
   const TextFiledCustome({
     super.key,
     required this.title,
     required this.controller,
+    required this.snapshot,
+    required this.textError,
+    required this.inputKeyboardFromUser,
+    this.secureText,
   });
 
   @override
@@ -27,9 +35,12 @@ class TextFiledCustome extends StatelessWidget {
           ),
         ),
         TextField(
+          obscureText: secureText ?? false ? true : false,
+          keyboardType: inputKeyboardFromUser,
           focusNode: FocusNode(canRequestFocus: true),
           controller: controller,
           decoration: InputDecoration(
+            errorText: (snapshot.data ?? true) ? null : textError,
             focusColor: ColorManager.primaryColorBlack,
             filled: true,
             fillColor: ColorManager.primaryColorWhite,

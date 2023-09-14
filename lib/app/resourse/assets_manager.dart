@@ -20,4 +20,8 @@ class SvgAssetes {
 
 class JsonAssetes {
   static const logoJson = "$_jsonAssets/logo.json";
+  static const loading = "$_jsonAssets/loading.json";
+  static const error = "$_jsonAssets/error.json";
+  static const empty = "$_jsonAssets/empty.json";
+  static const success = "$_jsonAssets/success.json";
 }

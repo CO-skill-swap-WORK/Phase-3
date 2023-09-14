@@ -1,6 +1,7 @@
 // the string file
 class StringConsant {
   static const skip = "Skip";
+  static const success = "Success";
   static const errorMessageAppBar = "Error";
   static const errorMessageBody = "Error Page Not Found";
 
@@ -20,8 +21,11 @@ class StringConsant {
   static const login = "Login";
   static const signup = "sing Up";
 
+  static const name = "Name";
   static const email = "Email";
   static const password = "Password";
+  static const confirmPassword = "Confirm Password";
+  static const nationalId = "National ID";
   static const forgetPassword = "Forget Password";
   static const emailPhoneNumber = "Email/Phone Number";
   static const forgetPasswordBodey =
@@ -32,5 +36,13 @@ class StringConsant {
   static const loadingState = "Loading...";
   static const retryAgain = "Retry Again";
   static const ok = "ok";
-  static const  empty = "";
+  static const empty = "";
+
+  static const nameError = "Name Error";
+  static const emailError = "Invalid Email";
+  static const passwordError = "Invalid Password";
+  static const confirmPasswordError = "Password don't match";
+  static const nationalIdError = "Error in length";
+  static const emailErrorStateRender = "Email is Already Used";
+  static const tryAgainLater = "Again Later";
 }

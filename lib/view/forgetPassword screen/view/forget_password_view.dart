@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ieee_app/app/consepts_string.dart';
 import 'package:ieee_app/app/resourse/app_padding.dart';
@@ -6,7 +7,7 @@ import 'package:ieee_app/app/resourse/color_manager.dart';
 import 'package:ieee_app/app/resourse/font_values.dart';
 import 'package:ieee_app/app/resourse/routes_manager.dart';
 import 'package:ieee_app/app/resourse/widgets/custome_appbar.dart';
-import 'package:ieee_app/app/resourse/widgets/input_filed.dart';
+import 'package:ieee_app/data/firebase/error_handler.dart';
 
 class ForgetPasswordView extends StatefulWidget {
   const ForgetPasswordView({super.key});
@@ -17,6 +18,17 @@ class ForgetPasswordView extends StatefulWidget {
 
 class _ForgetPasswordViewState extends State<ForgetPasswordView> {
   TextEditingController controller = TextEditingController();
+
+  login({required String email, required String password}) async {
+    final instance = FirebaseAuth.instance;
+    try {
+      await instance.signInWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException {
+      const StateRenders();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +39,11 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
       ),
       body: _body(),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   SingleChildScrollView _body() {
@@ -72,9 +89,12 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                 ),
               ),
             ),
-            _paddingWidget(
-              TextFiledCustome(title: "", controller: controller),
-            ),
+            // _paddingWidget(
+            //     // TextFiledCustome(
+            //     //   title: "",
+            //     //   controller: controller,
+            //     // ),
+            //     ),
             const SizedBox(
               height: AppSize.s60,
             ),
@@ -83,16 +103,17 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorManager.primaryColorOrange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(AppSize.s16),
-                      ),
-                      elevation: 0,
-                      padding: const EdgeInsets.only(
-                          left: AppSize.s80,
-                          right: AppSize.s80,
-                          top: AppSize.s12,
-                          bottom: AppSize.s12)),
+                    backgroundColor: ColorManager.primaryColorOrange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(AppSize.s16),
+                    ),
+                    elevation: 0,
+                    padding: const EdgeInsets.only(
+                        left: AppSize.s80,
+                        right: AppSize.s80,
+                        top: AppSize.s12,
+                        bottom: AppSize.s12),
+                  ),
                   onPressed: () {},
                   child: const Text(
                     StringConsant.next,

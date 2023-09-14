@@ -4,8 +4,8 @@ import 'package:ieee_app/app/resourse/app_sizes.dart';
 import 'package:ieee_app/app/resourse/color_manager.dart';
 import 'package:ieee_app/app/resourse/routes_manager.dart';
 import 'package:ieee_app/app/resourse/widgets/custome_appbar.dart';
-import 'package:ieee_app/view/login%20screen/view/login_view.dart';
-import 'package:ieee_app/view/singup/signUp%20customer%20screen/view/signup_customer.dart';
+import 'package:ieee_app/view/login%20screen/view/loginview.dart';
+import 'package:ieee_app/view/singup/signUp%20customer%20screen/view/signup_customer_view.dart';
 
 class SwitchSignUpLogin extends StatefulWidget {
   const SwitchSignUpLogin({super.key});
@@ -16,7 +16,6 @@ class SwitchSignUpLogin extends StatefulWidget {
 
 class _SwitchSignUpLoginState extends State<SwitchSignUpLogin> {
   bool isPreesed = true;
-  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +38,7 @@ class _SwitchSignUpLoginState extends State<SwitchSignUpLogin> {
                 _switch(title: StringConsant.signup, isPressed: isPreesed),
               ],
             ),
-            isPreesed ? const LoginView() : const SignUp(),
+            isPreesed ? const LoginViewNew() : const CustomerSignUp(),
           ],
         ),
       ),
@@ -48,6 +47,7 @@ class _SwitchSignUpLoginState extends State<SwitchSignUpLogin> {
 
   GestureDetector _switch({required String title, required bool isPressed}) {
     return GestureDetector(
+      behavior: HitTestBehavior.deferToChild,
       onTap: () {
         setState(() {
           isPreesed = title == StringConsant.login ? true : false;
