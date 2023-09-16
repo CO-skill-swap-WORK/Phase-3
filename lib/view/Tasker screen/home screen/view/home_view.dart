@@ -40,9 +40,7 @@ class _HomeTaskerState extends State<HomeTasker> {
               ],
             );
           } else {
-            return Container(
-              child: const Text("Not Data"),
-            );
+            return const Text("Not Data");
           }
         });
   }
