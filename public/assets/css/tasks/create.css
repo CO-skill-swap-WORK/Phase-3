@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 .formbold-main-wrapper {
     display: flex;
@@ -16,63 +16,30 @@ body {
 
 .formbold-form-wrapper {
     margin: 0 auto;
-    max-width: 570px;
-    width: 100%;
+    width: 65%;
     background: white;
-    padding: 40px;
 }
 
-.formbold-img {
-    display: block;
-    margin: 0 auto 40px;
-}
-
-.formbold-form-input {
-    width: 100%;
-    padding: 13px 22px;
-    border-radius: 5px;
-    border: 1px solid #dde3ec;
-    background: #ffffff;
-    font-weight: 500;
-    font-size: 16px;
-    color: #536387;
-    outline: none;
-    resize: none;
-}
-.formbold-form-input:focus {
-    border-color: #6a64f1;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-}
-.formbold-form-label {
-    color: #07074d;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    display: block;
-    margin-bottom: 20px;
-}
-.formbold-form-label span {
-    color: #536387;
-    font-size: 12px;
-    line-height: 18px;
-    display: inline-block;
-}
-
-.formbold-mb-3 {
+.formbold-input-flex {
+    display: flex;
+    gap: 20px;
     margin-bottom: 15px;
 }
-.formbold-mb-6 {
-    margin-bottom: 30px;
+.formbold-input-flex > div {
+    width: 100%;
+}
+
+.formbold-input-radio-wrapper {
+    margin-bottom: 15px;
 }
 .formbold-radio-flex {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items:center;
+    gap: 15px;
 }
 .formbold-radio-label {
     font-size: 14px;
     line-height: 24px;
-    color: #07074d;
     position: relative;
     padding-left: 25px;
     cursor: pointer;
@@ -81,6 +48,7 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
+
 .formbold-input-radio {
     position: absolute;
     opacity: 0;
@@ -92,25 +60,24 @@ body {
     left: 0;
     height: 18px;
     width: 18px;
-    background-color: #ffffff;
-    border: 1px solid #dde3ec;
+    background-color: #FFFFFF;
+    border: 1px solid #DDE3EC;
     border-radius: 50%;
 }
-.formbold-radio-label
-.formbold-input-radio:checked
-~ .formbold-radio-checkmark {
-    background-color: #6a64f1;
+.formbold-radio-label .formbold-input-radio:checked ~ .formbold-radio-checkmark {
+    background-color: #EF6525;
+    margin-left: 10px;
+
 }
 .formbold-radio-checkmark:after {
-    content: '';
+    content: "";
     position: absolute;
     display: none;
 }
 
-.formbold-radio-label
-.formbold-input-radio:checked
-~ .formbold-radio-checkmark:after {
+.formbold-radio-label .formbold-input-radio:checked ~ .formbold-radio-checkmark:after {
     display: block;
+
 }
 
 .formbold-radio-label .formbold-radio-checkmark:after {
@@ -119,10 +86,43 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #ffffff;
+    background: #FFFFFF;
     transform: translate(-50%, -50%);
 }
 
+.formbold-form-input {
+    width: 95%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #DDE3EC;
+    background: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    color: #07074D;
+    outline: none;
+    resize: none;
+    margin: auto;
+}
+.formbold-form-input::placeholder {
+    color: #536387;
+}
+.formbold-form-input:focus {
+    border-color: #EF6525;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+.formbold-form-label {
+    color: #07074D;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-weight: bolder;
+}
+.formbold-radio-group{
+    margin-left: 20px;
+    color: #07074D;
+}
 .formbold-btn {
     text-align: center;
     width: 100%;
@@ -131,11 +131,15 @@ body {
     padding: 14px 25px;
     border: none;
     font-weight: 500;
-    background-color: #6a64f1;
+    background-color: #EF6525;
     color: white;
     cursor: pointer;
     margin-top: 25px;
 }
 .formbold-btn:hover {
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+input[type='radio']{
+    color:#EF6525;
+    border: 2px solid #EF6525;
 }

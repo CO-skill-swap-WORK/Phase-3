@@ -64,6 +64,8 @@ var div=document.getElementById('success-data');
 
 function handleClick() {
     div.innerHTML="successful Process";
+    event.preventDefault();
 }
 
 button.addEventListener('click', handleClick);
+

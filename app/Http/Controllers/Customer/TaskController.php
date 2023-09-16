@@ -14,33 +14,17 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(){
         $user=Auth()->user();
         $tasks=Task::where('user_id',$user->id)->get();
         return view('customer.tasks.index',compact('tasks'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('customer.tasks.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreTask $request)
     {
-        $task=$request->all();
-        // Validate the request data
-        $user=Auth::user();
-        $tasks=Task::where('user_id',$user->id)->get();
-        // Create a new post
         $task= new Task();
         $task->title = $request->input('title');
         $task->description = $request->input('description');
@@ -49,11 +33,9 @@ class TaskController extends Controller
         $task->save();
         $users=User::where('id','!=',auth()->user()->id)->where('role_id','2')->where('skill_id',$task->skill_id)->get();
         $user_name=Auth::user()->name;
-        Notification::send($users,new CreateNewTask($task->id,$user_name,$task->title));
-        return view('customer.tasks.index',compact('tasks'));
+        Notification::send($users,new CreateNewTask($task->id,$user_name,$task->title,$task->description));
+        return redirect()->route('customer.tasks.index')->with('Updated Successfully');
     }
-
-
     public function show( $id)
     {
         $task=Task::findorFail($id);
@@ -61,29 +43,19 @@ class TaskController extends Controller
         DB::table('notifications')->where('id',$getID)->update(['read_at' => Now()]);
         return view('customer.tasks.show',compact('task'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $task=Task::find($id);
         return view('customer.tasks.edit',compact('task'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(StoreTask $request, string $id)
     {
-        $user=Auth::user();
-        $tasks=Task::where('user_id',$user->id)->get();
         $task=Task::find($id);
         $task->title = $request->input('title');
         $task->description = $request->input('description');
         $task->skill_id=$request->input('skill_id');
         $task->save();
-        return view('customer.tasks.index',compact('tasks'));
+        return redirect()->route('customer.tasks.index')->with('Updated Successfully');
     }
 
     /**

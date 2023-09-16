@@ -1,50 +1,51 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white pt-5  mx-5" >
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5  mx-5" >
+        <div class="flex justify-between h-4 align-items-center" >
+            <div class="flex" >
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center d-flex justify-content-around">
+                    <h3 class="px-3" style="margin-left: -120px">T3AWON</h3>
                     <a href="{{ route('dashboard') }}">
                         <img src="{{asset('assets/img/logo1.png')}}" height="50" width="50">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-left: 93px" >
+                    <x-nav-link href="{{route('welcome')}}" :active="request()->routeIs('home')" style="margin-right:15px;font-weight: bolder">
+                        {{ __('Home') }}
                     </x-nav-link>
                     @if (auth()->user()->role_id == 2)
-                        <x-nav-link href="{{ route('tasker.notifications.index') }}" :active="request()->routeIs('tasker.notifications.index')">
+                        <x-nav-link href="{{ route('tasker.notifications.index') }}" :active="request()->routeIs('tasker.notifications.index')" style="margin-right:15px;font-weight: bolder">
                             {{ __('Notifications') }}
                         </x-nav-link>
                     @endif
                     @if (auth()->user()->role_id == 3)
-                        <x-nav-link href="{{ route('customer.tasks.index') }}" :active="request()->routeIs('customer.tasks.index')">
+                        <x-nav-link href="{{ route('customer.tasks.index') }}" :active="request()->routeIs('customer.tasks.index')" style="margin-right:15px;font-weight: bolder"  class="p-nav">
                             {{ __('All Tasks') }}
                         </x-nav-link>
-                        <x-nav-link href="{{ route('customer.tasks.create') }}" :active="request()->routeIs('customer.tasks.create')">
+                        <x-nav-link href="{{ route('customer.tasks.create') }}" :active="request()->routeIs('customer.tasks.create')" style="margin-right:15px;font-weight: bolder">
                             {{ __('New Task') }}
                         </x-nav-link>
                     @endif
-                    <x-nav-link href="chatify" :active="request()->routeIs('chatify')">
+                    <x-nav-link href="/chatify" style="margin-right:15px;font-weight: bolder">
                         {{ __('Chat') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('stripe.index') }}" :active="request()->routeIs('stripe')">
+                    <x-nav-link href="{{ route('stripe.index') }}" :active="request()->routeIs('stripe')" style="margin-right:15px;font-weight: bolder">
                         {{ __('Payment') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('ratings') }}" :active="request()->routeIs('Ratings')">
+                    <x-nav-link href="{{ route('ratings') }}" :active="request()->routeIs('Ratings')" style="margin-right:15px;font-weight: bolder">
                         {{ __('Ratings') }}
                     </x-nav-link>
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:ml-6" style="margin-top: -20px;font-weight: bolder">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
-                        <x-dropdown align="right" width="60">
+                        <x-dropdown align="right" width="60" style="font-weight: bolder">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
@@ -159,7 +160,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden" >
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}

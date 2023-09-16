@@ -1,55 +1,48 @@
 <x-app-layout>
-    <x-slot name="header" >
+    <x-slot name="header" style="z-index: 2">
     </x-slot>
-
     <link rel="stylesheet" href="{{asset('assets/css/tasks/create.css')}}">
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="formbold-main-wrapper" >
-                <!-- Author: FormBold Team -->
-                <!-- Learn More: https://formbold.com -->
-                <div class="formbold-form-wrapper" style="margin-top: -50px">
-                    <img src="{{asset('assets/img/final_ieee.png')}}" height="200" width="200" style="margin: auto ;margin-top: -25px">
-                    <form action="{{route('customer.tasks.update',$task->id)}}" method="POST">
-                        @csrf
-                        @method('put')
-                        <div>
-                            <x-label for="title" value="{{ __('Title') }}" />
-                            <x-input id="title" class="block mt-1 w-full" type="text" name="title" value="{{$task->title}}" autofocus/>
-                        </div>
-
-                                <div class="mt-4" >
-                                    <x-label for="skill_id" value="{{ __('Skills') }}"/>
-                                    <select name="skill_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                                        @foreach(\App\Models\Skill::all() as $skill)
-                                            <option value="{{$skill->id}}">{{$skill->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                        <div class="formbold-mb-3">
-                            <label for="description" class="formbold-form-label">
-                                Description
-                            </label>
-                            <textarea
-                                rows="6"
-                                name="description"
-                                id="description"
-                                class="formbold-form-input">
-                                {{$task->description}}
-                            </textarea>
-                        </div>
-
-
-
-                                <div class="flex items-center justify-end mt-4">
-                                    <x-button class="ml-4">
-                                        {{ __('Done') }}
-                                    </x-button>
-                                </div>
-                    </form>
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+            <img src="{{asset('assets/img/skills/question.png')}}" width="200" style="margin: auto;height: 150px">
+            <form action="{{route('tasks.update',$task->id)}}" method="POST">
+                @csrf
+                @method('put')
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="title" for="title" value="{{ __('Title') }}" class="formbold-form-label">Title</label>
+                        <input id="title" class="formbold-form-input block mt-1 w-full" type="text" name="title" value="{{$task['title']}}"/>
+                    </div>
                 </div>
-            </div>
+
+                <div class="formbold-input-radio-wrapper">
+                    <label for="jobtitle" class="formbold-form-label"> What are you looking for? </label>
+
+                    <div class="formbold-radio-group">
+                        @foreach(\App\Models\Skill::all() as $skill)
+                            <label class="" for="skill_id" value="{{ __('Skills') }}">
+                                <input class="" type="radio" name="skill_id" id="jobtitle"  style="margin: 0px 12px;" value="{{$skill->id}}">{{$skill->name}}
+                                <span class="formbold-radio-checkmark"></span>
+                            </label>
+                        @endforeach
+                    </div>
+
+
+                </div>
+
+                <div class="formbold-mb-3">
+                    <label for="message" class="formbold-form-label"> Description </label>
+                    <textarea
+                        rows="4"
+                        name="description"
+                        id="description"
+                        class="formbold-form-input" placeholder="Write more Description"
+                        style="margin-left: 22px">{{$task['description']}}</textarea>
+                </div>
+                <button class="formbold-btn">
+                    Okey!
+                </button>
+            </form>
         </div>
     </div>
 </x-app-layout>

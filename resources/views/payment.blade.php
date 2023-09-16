@@ -48,8 +48,8 @@
             <label>
                 <span>Country</span>
                 <select name="address_country" id="address-country" class="field">
-                    <option value="IN">India</option>
-                    <option value="SG" selected>Singapore</option>
+                    <option value="EN">Egypt</option>
+                    <option value="KSA" selected>Saudi Arabia</option>
                 </select>
             </label>
         </div>
@@ -62,8 +62,6 @@
         </div>
     </form>
     </body>
-
     <script src="{{asset('assets/js/payment.js')}}">
-
     </script>
 </x-app-layout>

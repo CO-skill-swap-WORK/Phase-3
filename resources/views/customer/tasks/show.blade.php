@@ -2,23 +2,34 @@
     <x-slot name="header">
     </x-slot>
     <link rel="stylesheet" href="{{asset('assets/css/tasks/show.css')}}">
-    <div class="container">
-        <div class="card">
-            <div class="card__body">
-                <span class="tag tag-blue">{{ $task->id}}</span>
-                <h4>{{$task->title}}</h4>
-                <p>{{$task->description}}</p>
+    <link rel="stylesheet" href="{{asset('assets/css/tasks/show.css')}}">
+    <div id="screen">
+        <div id="menubar">
+            <div class="mac-btn" id="mac-btn-one"></div>
+            <div class="mac-btn" id="mac-btn-two"></div>
+            <div class="mac-btn" id="mac-btn-three"></div>
+        </div>
+
+        <div id="filler">
+            <div id="profiler"><img src="{{asset('assets/img/skills/cooker.jpg')}}"></div>
+            <div id="intro">
+                <div class="filler-one">{{$task->title}}</div>
+                <div class="filler-one">{{$task->created_at}}</div>
+
             </div>
-            <div class="card__footer">
-                <div class="user">
-                    <img src="{{asset('assets/img/profile.jpg')}}" alt="user__image" class="user__image" height="50" width="50" style="border-radius: 50%">
-                    <div class="user__info">
-                        <h5>{{ $task->user->name }}</h5>
-                        <small>{{$task->created_at}}</small>
-                    </div>
-                </div>
+
+            <div id="main">
+                <div class="filler-two">{{$task->description}}</div>
             </div>
         </div>
+
+        <div class="notification">
+            <div class="content">
+                <div class="identifier"></div>
+                <div class="text"></div>
+            </div>
         </div>
+
+        <div class="number"><p>{{$task->id}}</p></div>
     </div>
 </x-app-layout>

@@ -13,11 +13,13 @@ class CreateNewTask extends Notification
     private $task_id;
     private $user;
     private $title;
-    public function __construct($task_id,$user,$title)
+    private $description;
+    public function __construct($task_id,$user,$title,$description)
     {
         $this->task_id=$task_id;
         $this->user=$user;
         $this->title=$title;
+        $this->description=$description;
     }
     public function via($notifiable)
     {
@@ -28,7 +30,8 @@ class CreateNewTask extends Notification
         return [
             'task_id'=>$this->task_id,
             'user' => $this->user,
-            'title'=>$this->title
+            'title'=>$this->title,
+            'description' => $this->description
         ];
     }
 }

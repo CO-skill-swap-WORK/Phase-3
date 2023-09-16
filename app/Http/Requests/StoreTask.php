@@ -24,6 +24,7 @@ class StoreTask extends FormRequest
         return [
                 'title' => 'required|string|max:255',
                 'description' => 'required|string',
+                 'skill_id'=>'required',
             ];
     }
     public function messages()

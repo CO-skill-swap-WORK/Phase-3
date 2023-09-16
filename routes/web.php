@@ -28,14 +28,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-//Role Page
-Route::get('/choice', function () {
-    return view('choice');
-})->name('choice');
-//skills Page
-Route::get('skills',function (){
-    return view('skills');
-})->name('skills');
 // Register-step-2
 Route::group(['middleware'=>['auth','verified']],function (){
     Route::group(['middleware'=>['registration-completed']],function (){
@@ -43,6 +35,7 @@ Route::group(['middleware'=>['auth','verified']],function (){
             return view('dashboard');
         })->name('dashboard');
     });
+    //Register Step 2
     Route::get("register-step2",[\App\Http\Controllers\RegisterStepTwoController::class,'create'])
         ->name('register-step2.create');
     Route::post("register-step2",[\App\Http\Controllers\RegisterStepTwoController::class,'store'])
@@ -60,9 +53,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('ratings',[RatingController::class,'index'])->name('ratings');
 
 });
-
+//tasks CRUD
 Route::resource('tasks', \App\Http\Controllers\Customer\TaskController::class);
-Route::get('notification/markAsRead', [\App\Http\Controllers\Customer\TaskController::class,'markAsRead'])->name('markAsRead');
 
 
 //Stripe
@@ -75,7 +67,5 @@ Route::name('stripe.')
         Route::post('payment', 'store')->name('store');
     });
 //Notifications
-Route::get('test', function () {
-    event(new App\Events\StatusLiked('Someone'));
-    return "Event has been sent!";
-});
+Route::get('notification/markAsRead', [\App\Http\Controllers\Customer\TaskController::class,'markAsRead'])->name('markAsRead');
+
