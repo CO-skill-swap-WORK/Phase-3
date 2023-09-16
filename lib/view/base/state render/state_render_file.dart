@@ -46,11 +46,11 @@ class StateRenderer extends StatelessWidget {
     switch (stateRendererType) {
       case StateRendererType.popupLodingState:
         return _getPopupDialog(
-            context, [_getAnimatedImage(JsonAssetes.loading)]);
+            context, [_getAnimatedImage(JsonAssetesPath.loading)]);
 
       case StateRendererType.popupErrorState:
         return _getPopupDialog(context, [
-          _getAnimatedImage(JsonAssetes.error),
+          _getAnimatedImage(JsonAssetesPath.error),
           _getMessage(message),
           _getRetryButton(context, StringConsant.ok)
         ]);
@@ -58,7 +58,7 @@ class StateRenderer extends StatelessWidget {
       case StateRendererType.fullScreenLoadingState:
         return _getItemColumn(
           [
-            _getAnimatedImage(JsonAssetes.loading),
+            _getAnimatedImage(JsonAssetesPath.loading),
             _getMessage(message),
           ],
         );
@@ -66,7 +66,7 @@ class StateRenderer extends StatelessWidget {
       case StateRendererType.fullScreenErrorState:
         return _getItemColumn(
           [
-            _getAnimatedImage(JsonAssetes.error),
+            _getAnimatedImage(JsonAssetesPath.error),
             _getMessage(message),
             _getRetryButton(context, StringConsant.retryAgain),
           ],
@@ -75,7 +75,7 @@ class StateRenderer extends StatelessWidget {
       case StateRendererType.fullScreenEmptyState:
         return _getItemColumn(
           [
-            _getAnimatedImage(JsonAssetes.empty),
+            _getAnimatedImage(JsonAssetesPath.empty),
             _getMessage(message),
           ],
         );
@@ -83,7 +83,7 @@ class StateRenderer extends StatelessWidget {
       case StateRendererType.success:
         return _getItemColumn(
           [
-            _getAnimatedImage(JsonAssetes.success),
+            _getAnimatedImage(JsonAssetesPath.success),
             _getMessage(StringConsant.success),
           ],
         );
@@ -176,7 +176,7 @@ class StateRenderer extends StatelessWidget {
         padding: const EdgeInsets.all(AppPadding.p8),
         child: Text(
           message,
-          style: TextStyle(
+          style: const TextStyle(
             color: ColorManager.textColorBlueBlack,
             fontSize: FontSize.s20f,
           ),

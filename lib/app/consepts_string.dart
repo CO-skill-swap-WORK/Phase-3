@@ -45,4 +45,17 @@ class StringConsant {
   static const nationalIdError = "Error in length";
   static const emailErrorStateRender = "Email is Already Used";
   static const tryAgainLater = "Again Later";
+
+  static const postYourJob = "Post Job Requirements";
+  static const enterDetails = "Enter your Details";
+  static const jobTitle = "Job Title";
+  static const jobTitleError = "Title Error";
+  static const jobLocation = "Location";
+  static const jobLocationError = "Location Error";
+  static const jobDescription = "Description";
+  static const jobDescriptionError = "Description Error";
+  static const createnewPost = "create new post";
+  static const done = "Done";
+  static const userName = "Enter Your Name";
+  static const signOUt = "Sign Out";
 }

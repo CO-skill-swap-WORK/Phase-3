@@ -1,6 +1,7 @@
 // this is for app padding and app margin
 
 class AppPadding {
+  static const double p4 = 4;
   static const double p8 = 8;
   static const double p12 = 12;
   static const double p14 = 14;

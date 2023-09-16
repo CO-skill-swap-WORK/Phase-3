@@ -8,7 +8,7 @@ class TextFiledCustome extends StatelessWidget {
   final String textError;
   final AsyncSnapshot snapshot;
   final TextInputType inputKeyboardFromUser;
-  final bool? secureText;
+  final bool secureText;
   const TextFiledCustome({
     super.key,
     required this.title,
@@ -16,7 +16,7 @@ class TextFiledCustome extends StatelessWidget {
     required this.snapshot,
     required this.textError,
     required this.inputKeyboardFromUser,
-    this.secureText,
+    required this.secureText,
   });
 
   @override
@@ -35,7 +35,7 @@ class TextFiledCustome extends StatelessWidget {
           ),
         ),
         TextField(
-          obscureText: secureText ?? false ? true : false,
+          obscureText: secureText ? true : false,
           keyboardType: inputKeyboardFromUser,
           focusNode: FocusNode(canRequestFocus: true),
           controller: controller,
@@ -45,7 +45,7 @@ class TextFiledCustome extends StatelessWidget {
             filled: true,
             fillColor: ColorManager.primaryColorWhite,
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: ColorManager.primaryColorBlack,
               ),
               borderRadius: BorderRadius.circular(

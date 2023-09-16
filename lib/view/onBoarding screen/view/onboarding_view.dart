@@ -23,12 +23,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   final OnBoardingViewModel _viewModel = OnBoardingViewModel();
 
-  // final SharedPreferncesApp _sharedPreferncesApp =
-  //     instance<SharedPreferncesApp>();
-
   buind() {
     _viewModel.start();
-    // _sharedPreferncesApp.setOnboarding();
   }
 
   @override
@@ -41,7 +37,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: _viewModel.outputSliderViewObject,
-      builder: (BuildContext context, snapshot) {
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
         return _getWidgetData(snapshot.data);
       },
     );
@@ -62,7 +58,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         appBar: AppBar(
           elevation: AppSize.s0,
           backgroundColor: ColorManager.primaryColorOfWhite,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: ColorManager.primaryColorOfWhite,
             statusBarBrightness: Brightness
                 .dark, // this is mean is the wifi icon and any icon show in your phone is will be a dark icon
@@ -172,9 +168,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   Widget _getCircleIndcator(int index, int currentIndex) {
     if (index == currentIndex) {
-      return SvgPicture.asset(SvgAssetes.hollowCircleIc);
+      return SvgPicture.asset(SvgAssetesPath.hollowCircleIc);
     } else {
-      return SvgPicture.asset(SvgAssetes.solidCircleIc);
+      return SvgPicture.asset(SvgAssetesPath.solidCircleIc);
     }
   }
 }

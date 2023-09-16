@@ -15,7 +15,7 @@ class StateRenders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: LottieBuilder.asset(JsonAssetes.logoJson),
+      child: LottieBuilder.asset(JsonAssetesPath.logoJson),
     );
   }
 }
@@ -30,7 +30,7 @@ class LodingState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LottieBuilder.asset(JsonAssetes.logoJson),
+      body: LottieBuilder.asset(JsonAssetesPath.logoJson),
     );
   }
 }
@@ -47,7 +47,7 @@ class SignInWithEmailAndPasswordFailuer extends StatelessWidget
       child: Column(
         children: [
           Text(error),
-          LottieBuilder.asset(JsonAssetes.logoJson),
+          LottieBuilder.asset(JsonAssetesPath.logoJson),
         ],
       ),
     );

@@ -33,7 +33,7 @@ class RoleScreen extends StatelessWidget {
       padding: const EdgeInsets.only(top: AppSize.s20),
       child: Column(
         children: [
-          frame(whicheFrame: ImageAssetes.frame2),
+          frame(whicheFrame: ImageAssetesPath.frame2),
           const SizedBox(
             height: AppSize.s100,
           ),
@@ -53,7 +53,7 @@ class RoleScreen extends StatelessWidget {
           const SizedBox(
             height: AppSize.s100,
           ),
-          frame(whicheFrame: ImageAssetes.frame1),
+          frame(whicheFrame: ImageAssetesPath.frame1),
         ],
       ),
     );
@@ -62,8 +62,8 @@ class RoleScreen extends StatelessWidget {
   Padding frame({required String whicheFrame}) {
     return Padding(
       padding: EdgeInsets.only(
-        top: whicheFrame == ImageAssetes.frame2 ? AppPadding.p28 : 0,
-        left: whicheFrame == ImageAssetes.frame1 ? AppPadding.p290 : 0,
+        top: whicheFrame == ImageAssetesPath.frame2 ? AppPadding.p28 : 0,
+        left: whicheFrame == ImageAssetesPath.frame1 ? AppPadding.p290 : 0,
       ),
       child: Row(
         children: [
@@ -92,7 +92,7 @@ class RoleScreen extends StatelessWidget {
   }) {
     if (typeUser == "Tasker") {
       Navigator.of(context)
-          .pushReplacementNamed(RouteManager.signUpTaskerRoute);
+          .pushReplacementNamed(RouteManager.switchTaskerRoute);
     } else {
       Navigator.of(context)
           .pushReplacementNamed(RouteManager.switchCustomerRoute);

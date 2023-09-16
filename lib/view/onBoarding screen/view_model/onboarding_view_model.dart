@@ -66,27 +66,31 @@ class OnBoardingViewModel extends BasedViewModel
   _getSliderData() {
     return [
       OnBoardingModel(
-          title: StringConsant.titleDeliveryOnBoardingScreen,
-          subTitle: StringConsant.subTitleDeliveryOnBoardingScreen,
-          imagePath: ImageAssetes.deliverImage),
+        title: StringConsant.titleDeliveryOnBoardingScreen,
+        subTitle: StringConsant.subTitleDeliveryOnBoardingScreen,
+        imagePath: ImageAssetesPath.deliverImage,
+      ),
       OnBoardingModel(
         title: StringConsant.titleCarPenterOnBoardingScreen,
         subTitle: StringConsant.subTitleCarPenterOnBoardingScreen,
-        imagePath: ImageAssetes.carPenter,
+        imagePath: ImageAssetesPath.carPenter,
       ),
       OnBoardingModel(
         title: StringConsant.titleHouseKeeperOnBoardingScreen,
         subTitle: StringConsant.subTitleHouseKeeperOnBoardingScreen,
-        imagePath: ImageAssetes.houseKeeper,
+        imagePath: ImageAssetesPath.houseKeeper,
       ),
     ];
   }
 
   void _postDataToView() {
-    inputSliderViewObject.add(SliderViewObject(
+    inputSliderViewObject.add(
+      SliderViewObject(
         onBoarding: _list[_currentIndex],
         numOfSlides: _list.length,
-        currentIndex: _currentIndex));
+        currentIndex: _currentIndex,
+      ),
+    );
   }
 }
 

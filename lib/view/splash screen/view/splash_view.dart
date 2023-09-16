@@ -15,16 +15,20 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  _startDely() {
-    Timer(const Duration(seconds: DurationConsepts.dutrationTime), () {
-      Navigator.pushReplacementNamed(context, RouteManager.onBoardingRoute);
-    });
+  Timer? _timer;
+
+  _startDelay() {
+    _timer = Timer(
+      const Duration(seconds: DurationConsepts.dutrationTime),
+      () => Navigator.of(context)
+          .pushReplacementNamed(RouteManager.onBoardingRoute),
+    );
   }
 
   @override
   void initState() {
     super.initState;
-    _startDely();
+    _startDelay();
   }
 
   @override
@@ -34,18 +38,19 @@ class _SplashViewState extends State<SplashView> {
 
   _screen() {
     return Scaffold(
-      backgroundColor: ColorManager.primaryColorOfWhite,
+      backgroundColor: ColorManager.primaryColorWhite,
       appBar: AppBar(
-        backgroundColor: ColorManager.primaryColorOfWhite,
+        backgroundColor: ColorManager.primaryColorWhite,
         elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: ColorManager.primaryColorOfWhite),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: ColorManager.primaryColorWhite,
+        ),
       ),
       body: Center(
         child: SizedBox(
           height: AppSize.s350,
           width: AppSize.s350,
-          child: Image.asset(ImageAssetes.logo),
+          child: Image.asset(ImageAssetesPath.logo),
         ),
       ),
     );
@@ -53,6 +58,7 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   void dispose() {
+    _timer!.cancel();
     super.dispose();
   }
 }

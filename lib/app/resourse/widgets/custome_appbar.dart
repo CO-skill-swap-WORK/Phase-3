@@ -10,7 +10,7 @@ class AppBarCutome {
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(whichRoute);
           },
-          icon: Icon(
+          icon: const Icon(
             color: ColorManager.primaryColorBlack,
             Icons.arrow_back,
           )),
