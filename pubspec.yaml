@@ -37,14 +37,16 @@ flutter:
     - assets/json/loading.json
     - assets/json/error.json
     - assets/json/success.json
-    - assets/image/carpenter.jpg
-    - assets/image/Delivery.jpg
-    - assets/image/HouseKeeper.jpg
-    - assets/image/logo.jpg
-    - assets/image/profileimage.png
     - assets/image/firstframe.png
-    - assets/image/secondframe.png
     - assets/image/lock.jpg
+    - assets/image/profileimage.png
+    - assets/image/secondframe.png
+    - assets/image/art.png
+    - assets/image/chef.png
+    - assets/image/logo.png
+    - assets/image/student.png
+    - assets/image/EllipseBlue.png
+    - assets/image/EllipseWhite.png
     - assets/svg/hollow_circle_ic.svg
     - assets/svg/solid_circle_ic.svg
 

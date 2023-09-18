@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:ieee_app/app/consepts_string.dart';
-import 'package:ieee_app/app/duration_consepts.dart';
 import 'package:ieee_app/app/resourse/app_padding.dart';
 import 'package:ieee_app/app/resourse/app_sizes.dart';
 import 'package:ieee_app/app/resourse/assets_manager.dart';
 import 'package:ieee_app/app/resourse/color_manager.dart';
+import 'package:ieee_app/app/resourse/font_values.dart';
 import 'package:ieee_app/app/resourse/routes_manager.dart';
 import 'package:ieee_app/domain/models/base_models.dart';
 import 'package:ieee_app/view/onBoarding%20screen/view_model/onboarding_view_model.dart';
@@ -54,12 +53,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       return Container();
     } else {
       return Scaffold(
-        backgroundColor: ColorManager.primaryColorOfWhite,
+        backgroundColor: sliderViewObject.onBoarding.backgroundColor,
         appBar: AppBar(
           elevation: AppSize.s0,
-          backgroundColor: ColorManager.primaryColorOfWhite,
-          systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: ColorManager.primaryColorOfWhite,
+          backgroundColor: sliderViewObject.onBoarding.backgroundColor,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: sliderViewObject.onBoarding.backgroundColor,
             statusBarBrightness: Brightness
                 .dark, // this is mean is the wifi icon and any icon show in your phone is will be a dark icon
           ),
@@ -78,25 +77,33 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         ),
         bottomSheet: Container(
           width: double.infinity,
-          color: ColorManager.primaryColorOfWhite,
+          color: sliderViewObject.onBoarding.backgroundColor,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               // this is for skip button
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  child: Text(
-                    StringConsant.skip,
-                    textAlign: TextAlign.end,
-                    style: Theme.of(context).textTheme.bodyLarge,
+              Padding(
+                padding: const EdgeInsets.only(right: AppPadding.p30),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    child: const Text(
+                      StringConsant.skip,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                          color: ColorManager.skipColorWhite,
+                          fontFamily: FontConstants.fontfamily,
+                          fontSize: FontSize.s24f,
+                          decoration: TextDecoration.underline,
+                          fontWeight: FontWeight.w300),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        RouteManager.roleRoute,
+                      );
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(
-                      context,
-                      RouteManager.roleRoute,
-                    );
-                  },
                 ),
               ),
               // this is for indicator
@@ -110,29 +117,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   Widget _getWidgetIndicator(SliderViewObject sliderViewObject) {
     return Container(
-      color: ColorManager.primaryColorOrange,
+      color: sliderViewObject.onBoarding.backgroundColor,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // left arrow
-          Padding(
-            padding: const EdgeInsets.all(AppPadding.p14),
-            child: GestureDetector(
-              child: const SizedBox(
-                  width: AppSize.s20,
-                  height: AppSize.s20,
-                  child: Icon(Icons.arrow_left_rounded)),
-              // go to previous slide
-              onTap: () {
-                _pageController.animateToPage(
-                  _viewModel.goPrevious(),
-                  duration: const Duration(
-                      milliseconds: DurationConsepts.dutrationTime),
-                  curve: Curves.bounceInOut,
-                );
-              },
-            ),
-          ),
           //indcator
           Row(
             children: [
@@ -143,24 +131,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 )
             ],
           ),
-          // right arrow
-          Padding(
-            padding: const EdgeInsets.all(AppPadding.p14),
-            child: GestureDetector(
-              child: const SizedBox(
-                  width: AppSize.s20,
-                  height: AppSize.s20,
-                  child: Icon(Icons.arrow_right_rounded)),
-              onTap: () {
-                _pageController.animateToPage(
-                  _viewModel.goNext(),
-                  duration: const Duration(
-                      milliseconds: DurationConsepts.dutrationTime),
-                  curve: Curves.bounceInOut,
-                );
-              },
-            ),
-          )
         ],
       ),
     );
@@ -168,9 +138,15 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   Widget _getCircleIndcator(int index, int currentIndex) {
     if (index == currentIndex) {
-      return SvgPicture.asset(SvgAssetesPath.hollowCircleIc);
+      return SizedBox(
+          height: AppSize.s20,
+          width: AppSize.s20,
+          child: Image.asset(ImageAssetesPath.ellipseBlue));
     } else {
-      return SvgPicture.asset(SvgAssetesPath.solidCircleIc);
+      return SizedBox(
+          height: AppSize.s20,
+          width: AppSize.s20,
+          child: Image.asset(ImageAssetesPath.ellipseWhite));
     }
   }
 }
@@ -187,30 +163,26 @@ class OnBoardingPage extends StatelessWidget {
         const SizedBox(
           height: AppSize.s40,
         ),
+        // images in any boarding page
+        SizedBox(
+          height: AppSize.s350,
+          width: AppSize.s350,
+          child: Image.asset(onBoardingModel.imagePath),
+        ),
+        const SizedBox(
+          height: AppSize.s60,
+        ),
         // title in any boarding page
         Padding(
           padding: const EdgeInsets.all(AppPadding.p8),
           child: Text(
             onBoardingModel.title,
             textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontFamily: FontConstants.fontfamily,
+                fontSize: FontSize.s32f,
+                fontWeight: FontWeight.w700),
           ),
-        ),
-        // subTitle in any boarding page
-        Padding(
-          padding: const EdgeInsets.all(AppPadding.p8),
-          child: Text(
-            onBoardingModel.subTitle,
-            textAlign: TextAlign.center,
-          ),
-        ),
-        const SizedBox(
-          height: AppSize.s60,
-        ),
-        // images in any boarding page
-        SizedBox(
-          height: AppSize.s350,
-          width: AppSize.s350,
-          child: Image.asset(onBoardingModel.imagePath),
         ),
       ],
     );

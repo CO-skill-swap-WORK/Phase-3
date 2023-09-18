@@ -1,16 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:flutter/material.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class OnBoardingModel {
   final String imagePath;
   final String title;
-  final String subTitle;
+  final Color backgroundColor;
 
   OnBoardingModel({
     required this.imagePath,
     required this.title,
-    required this.subTitle,
+    required this.backgroundColor,
   });
 }
 
@@ -87,12 +89,11 @@ class CreatePostModel {
 
   factory CreatePostModel.fromJson(Map<String, dynamic> map) {
     return CreatePostModel(
-      title: map['JobTitle'] as String,
-      location: map['JobLocation'] as String,
-      description: map['JobDescription'] as String,
-      userIdAuthentication: map['UserId'] as String,
-      userName:map["UserName"] as String
-    );
+        title: map['JobTitle'] as String,
+        location: map['JobLocation'] as String,
+        description: map['JobDescription'] as String,
+        userIdAuthentication: map['UserId'] as String,
+        userName: map["UserName"] as String);
   }
 }
 

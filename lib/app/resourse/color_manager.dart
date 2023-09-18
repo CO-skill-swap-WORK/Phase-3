@@ -22,4 +22,11 @@ class ColorManager {
   static const Color textColorGrey = Color.fromRGBO(39, 36, 68, 0.7);
   static const Color textColorGreyWhite = Color.fromRGBO(39, 36, 68, 0.5);
   static const Color textColorWhite = Color.fromRGBO(39, 36, 68, 0.1);
+  static const Color skipColorWhite = Color(0xff272444);
+  // Splash Screen
+  static const Color splashScreenColor = Color(0xfffdfaf5);
+  // onBoarding screen
+  static const Color firstOnBoardingScreenColor = Color(0xffC4C4C4);
+  static const Color secondOnBoardingScreenColor = Color(0xffA9C1D7);
+  static const Color thirdOnBoardingScreenColor = Color(0xffA5C7AE);
 }

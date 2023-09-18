@@ -5,16 +5,13 @@ class StringConsant {
   static const errorMessageAppBar = "Error";
   static const errorMessageBody = "Error Page Not Found";
 
-  static const titleDeliveryOnBoardingScreen = "Deliver";
-  static const subTitleDeliveryOnBoardingScreen =
-      "Deliver Your Orders in any place";
+  static const titleDeliveryOnBoardingScreen = "Welcom to Co-Work\n App";
 
-  static const titleCarPenterOnBoardingScreen = "CarPenter";
-  static const subTitleCarPenterOnBoardingScreen =
-      "choose your woode and your design and we create a most creative shape";
+  static const titleCarPenterOnBoardingScreen =
+      "Find The Best\n Home Services !";
 
-  static const titleHouseKeeperOnBoardingScreen = "HouseKeeper";
-  static const subTitleHouseKeeperOnBoardingScreen = "choose your House Keeper";
+  static const titleHouseKeeperOnBoardingScreen =
+      "We are Ready to \nGive you the Best.";
 
   static const welcomeBack = "Welcome Back!";
 

@@ -5,10 +5,12 @@ const _jsonAssets = "assets/json";
 const _svgAssets = "assets/svg";
 
 class ImageAssetesPath {
-  static const deliverImage = "$_imageAssets/Delivery.jpg";
-  static const houseKeeper = "$_imageAssets/HouseKeeper.jpg";
-  static const carPenter = "$_imageAssets/carpenter.jpg";
-  static const logo = "$_imageAssets/logo.jpg";
+  static const chef = "$_imageAssets/chef.png";
+  static const ellipseBlue = "$_imageAssets/EllipseBlue.png";
+  static const ellipseWhite = "$_imageAssets/EllipseWhite.png";
+  static const student = "$_imageAssets/student.png";
+  static const art = "$_imageAssets/art.png";
+  static const logo = "$_imageAssets/logo.png";
   static const profileImage = "$_imageAssets/profileimage.png";
   static const frame1 = "$_imageAssets/firstframe.png";
   static const frame2 = "$_imageAssets/secondframe.png";

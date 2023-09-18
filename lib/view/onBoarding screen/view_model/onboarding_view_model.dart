@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:ieee_app/app/consepts_string.dart';
 import 'package:ieee_app/app/resourse/assets_manager.dart';
+import 'package:ieee_app/app/resourse/color_manager.dart';
 import 'package:ieee_app/domain/models/base_models.dart';
 import 'package:ieee_app/view/base/baseviewmodel.dart';
 
 class OnBoardingViewModel extends BasedViewModel
     with OnBoardingViewModelInputs, OnBoardingViewModelOutputs {
-  final StreamController _streamController =
-      StreamController<SliderViewObject>();
+  final _streamController = StreamController<SliderViewObject>();
 
   late final List<OnBoardingModel> _list;
 
@@ -66,19 +66,17 @@ class OnBoardingViewModel extends BasedViewModel
   _getSliderData() {
     return [
       OnBoardingModel(
-        title: StringConsant.titleDeliveryOnBoardingScreen,
-        subTitle: StringConsant.subTitleDeliveryOnBoardingScreen,
-        imagePath: ImageAssetesPath.deliverImage,
-      ),
+          title: StringConsant.titleDeliveryOnBoardingScreen,
+          imagePath: ImageAssetesPath.chef,
+          backgroundColor: ColorManager.firstOnBoardingScreenColor),
       OnBoardingModel(
-        title: StringConsant.titleCarPenterOnBoardingScreen,
-        subTitle: StringConsant.subTitleCarPenterOnBoardingScreen,
-        imagePath: ImageAssetesPath.carPenter,
-      ),
+          title: StringConsant.titleCarPenterOnBoardingScreen,
+          imagePath: ImageAssetesPath.student,
+          backgroundColor: ColorManager.secondOnBoardingScreenColor),
       OnBoardingModel(
         title: StringConsant.titleHouseKeeperOnBoardingScreen,
-        subTitle: StringConsant.subTitleHouseKeeperOnBoardingScreen,
-        imagePath: ImageAssetesPath.houseKeeper,
+        imagePath: ImageAssetesPath.art,
+        backgroundColor: ColorManager.thirdOnBoardingScreenColor,
       ),
     ];
   }
